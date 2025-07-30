@@ -1,4 +1,5 @@
 let amigos = [];
+let amigoAdicionado = document.getElementById("listaAmigos");
 
 
 function adicionarAmigo() {
@@ -24,9 +25,8 @@ function limparInput() {
 
 function atualizarListaDeAmigo() {
 
-    let amigoAdicionado = document.getElementById("listaAmigos");
-    let lista; 
-    amigoAdicionado.innerHTML = "";
+    let lista;
+    amigoAdicionado.innerHTML = ""; 
 
     for(let quantidadeDeAmigos = 0; quantidadeDeAmigos < amigos.length; quantidadeDeAmigos++) {
         lista = document.createElement("li");
@@ -54,7 +54,8 @@ function sortearAmigo() {
     if(amigos.length > 0) {
        let sorteio = Math.floor(Math.random() * amigos.length);
        let resultado = document.getElementById("resultado");
-       resultado.innerHTML = amigos[sorteio];
+       amigoAdicionado.innerHTML = "";
+       resultado.innerHTML = `Amigo secreto é: ${amigos[sorteio]}`;
        
 
        function estilizarResultado() {
@@ -63,7 +64,7 @@ function sortearAmigo() {
         resultado.style.border = "2px solid #81c784";
         resultado.style.borderRadius = "8px";
         resultado.style.padding = "6px 10px";
-        resultado.style.marginBottom = "6px";
+        resultado.style.marginBottom = "15px";
         resultado.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.2)";
         }
     
